@@ -13,12 +13,14 @@ def RenderOcean():
     for row in ocean:
         print(" ".join(row))
 
-#takes in the coordinates for the user's guess
-RowAnswer = int(input("please put your row answer here from 0 to grid size: "))
-ColumnAnswer = int(input("please put your column answer here as well from 0 to grid size: "))
+while True:
 
-#put's an 'x' for the user's grid coordinate
-ocean[RowAnswer][ColumnAnswer] = "x"
+    #takes in the coordinates for the user's guess
+    RowAnswer = int(input("please put your row answer here from 0 to grid size: "))
+    ColumnAnswer = int(input("please put your column answer here as well from 0 to grid size: "))
 
-# line 11
-RenderOcean()
+    #put's an 'x' for the user's grid coordinate
+    ocean[RowAnswer][ColumnAnswer] = "x"
+
+    # line 11
+    RenderOcean()
