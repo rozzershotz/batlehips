@@ -9,8 +9,9 @@ for i in range(1, GridSize + 1):
     ocean.append(["~"] * GridSize)
 
 # renders ocean thing to screen thing
-for row in ocean:
-    print(" ".join(row))
+def RenderOcean():
+    for row in ocean:
+        print(" ".join(row))
 
 #takes in the coordinates for the user's guess
 RowAnswer = int(input("please put your row answer here from 0 to grid size: "))
@@ -20,5 +21,4 @@ ColumnAnswer = int(input("please put your column answer here as well from 0 to g
 ocean[RowAnswer][ColumnAnswer] = "x"
 
 # line 11
-for row in ocean:
-    print(" ".join(row))
+RenderOcean()
