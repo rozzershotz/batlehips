@@ -1,5 +1,14 @@
 # takes the size of the grid that the user wants
 GridSize = int(input("how big do you want the board?: "))
+if GridSize > 20:
+    print("too big bucko")
+    GridSize = 20
+    
+elif GridSize < 5:
+    print("too smoll mis amigo")
+    GridSize = 5
+
+
 
 # makes an empty list that makes an ocean of coordinates
 ocean = []
@@ -13,6 +22,7 @@ def RenderOcean():
     for row in ocean:
         print(" ".join(row))
 
+# to make the game last more than one round
 while True:
 
     #takes in the coordinates for the user's guess
@@ -20,7 +30,7 @@ while True:
     ColumnAnswer = int(input("please put your column answer here as well from 0 to grid size: "))
 
     #put's an 'x' for the user's grid coordinate
-    ocean[RowAnswer][ColumnAnswer] = "x"
+    ocean[RowAnswer][ColumnAnswer] = "X"
 
     # line 11
     RenderOcean()
