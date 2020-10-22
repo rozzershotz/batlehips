@@ -1,3 +1,5 @@
+from random import randint
+
 # takes the size of the grid that the user wants
 GridSize = int(input("how big do you want the board?: "))
 if GridSize > 20:
@@ -8,7 +10,11 @@ elif GridSize < 5:
     print("too smoll mis amigo")
     GridSize = 5
 
+battleshiprow = randint(0, GridSize - 1)
+battleshipcolumn = randint(0, GridSize - 1)
 
+# battleshipcolumn = 5
+# battleshiprow = 5
 
 # makes an empty list that makes an ocean of coordinates
 ocean = []
@@ -32,5 +38,15 @@ while True:
     #put's an 'x' for the user's grid coordinate
     ocean[RowAnswer][ColumnAnswer] = "X"
 
-    # line 11
     RenderOcean()
+
+# checks if the user hit the battleship
+    if RowAnswer == battleshiprow and ColumnAnswer == battleshipcolumn:
+        print("You obliterated the battleship you murdering sychopath!")
+
+        # stops the loop repeating
+        break
+
+    else:
+        print("hahahahahahaha ur so bad you missed hahahahahahaha, but try again")
+
