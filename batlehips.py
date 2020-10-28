@@ -10,6 +10,10 @@ elif GridSize < 5:
     print("too smoll mis amigo")
     GridSize = 5
 
+totalgoes = GridSize * round(GridSize/4)
+
+totalgoeshad = 0
+
 battleshiprow = randint(0, GridSize - 1)
 battleshipcolumn = randint(0, GridSize - 1)
 
@@ -28,12 +32,19 @@ def RenderOcean():
     for row in ocean:
         print(" ".join(row))
 
+print("you have " + str(totalgoes) + " goes for this game")
+
 # to make the game last more than one round
 while True:
 
     # takes in the coordinates for the user's guess
     RowAnswer = int(input("please put your row answer here from 1 to grid size: "))
     ColumnAnswer = int(input("please put your column answer here as well from 1 to grid size: "))
+
+    totalgoeshad += 1
+    if totalgoeshad == totalgoes:
+        print("hold on you've used up all your goes")
+        break
 
     if RowAnswer > GridSize or ColumnAnswer > GridSize:
         print("l ur answer too big fix it 菜菜菜菜菜菜菜菜")
