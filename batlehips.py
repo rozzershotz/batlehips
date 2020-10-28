@@ -31,18 +31,25 @@ def RenderOcean():
 # to make the game last more than one round
 while True:
 
-    #takes in the coordinates for the user's guess
-    RowAnswer = int(input("please put your row answer here from 0 to grid size: "))
-    ColumnAnswer = int(input("please put your column answer here as well from 0 to grid size: "))
+    # takes in the coordinates for the user's guess
+    RowAnswer = int(input("please put your row answer here from 1 to grid size: "))
+    ColumnAnswer = int(input("please put your column answer here as well from 1 to grid size: "))
 
-    #put's an 'x' for the user's grid coordinate
-    ocean[RowAnswer][ColumnAnswer] = "X"
+    if RowAnswer > GridSize or ColumnAnswer > GridSize:
+        print("l ur answer too big fix it 菜菜菜菜菜菜菜菜")
+        continue
+    if RowAnswer <= 0 or ColumnAnswer <= 0:
+        print("I forcefully require u to keep ur answer above 0 pls")
+        continue
+
+    # puts an 'x' for the user's grid coordinate
+    ocean[RowAnswer - 1][ColumnAnswer - 1] = "X"
 
     RenderOcean()
 
-# checks if the user hit the battleship
+    # checks if the user hit the battleship
     if RowAnswer == battleshiprow and ColumnAnswer == battleshipcolumn:
-        print("You obliterated the battleship you murdering sychopath!")
+        print("You obliterated the battleship you murdering psychopath!")
 
         # stops the loop repeating
         break
