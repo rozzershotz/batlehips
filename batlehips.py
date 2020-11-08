@@ -1,7 +1,10 @@
 from random import randint
 
 # takes the size of the grid that the user wants
-GridSize = int(input("how big do you want the board?: "))
+GridInput = input("how big do you want the board?: ")
+if GridInput.isdigit() == False:
+    print("You need a number -_-")
+GridSize = int(GridInput)
 if GridSize > 20:
     print("too big bucko")
     GridSize = 20
@@ -38,8 +41,17 @@ print("you have " + str(totalgoes) + " goes for this game")
 while True:
 
     # takes in the coordinates for the user's guess
-    RowAnswer = int(input("please put your row answer here from 1 to grid size: "))
-    ColumnAnswer = int(input("please put your column answer here as well from 1 to grid size: "))
+    RowInput = input("please put your row answer here from 1 to grid size: ")
+    if RowInput.isdigit() == False:
+        print("You need a number genius")
+        continue
+    RowAnswer = int(RowInput)
+    
+    ColumnInput = input("please put your column answer here as well from 1 to grid size: ")
+    if ColumnInput.isdigit() == False:
+        print("BRO U NEED A NUMBER")
+        continue
+    ColumnAnswer = int(ColumnInput)
 
     totalgoeshad += 1
     if totalgoeshad == totalgoes:
