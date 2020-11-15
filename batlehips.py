@@ -1,10 +1,18 @@
 from random import randint
 
+def GetNumberFromUser(message, errormessage):
+    ValidInputGiven = False
+    while ValidInputGiven == False:
+        stringInput = input(message)
+        if stringInput.isdigit() == False:
+            print(errormessage)
+        else:
+            ValidInputGiven = True
+    integer = int(stringInput)
+    return integer
+
 # takes the size of the grid that the user wants
-GridInput = input("how big do you want the board?: ")
-if GridInput.isdigit() == False:
-    print("You need a number -_-")
-GridSize = int(GridInput)
+GridSize = GetNumberFromUser("How big do you want the board?: ", "You need a number -_-")
 if GridSize > 20:
     print("too big bucko")
     GridSize = 20
@@ -41,19 +49,12 @@ print("you have " + str(totalgoes) + " goes for this game")
 while True:
 
     # takes in the coordinates for the user's guess
-    RowInput = input("please put your row answer here from 1 to grid size: ")
-    if RowInput.isdigit() == False:
-        print("You need a number genius")
-        continue
-    RowAnswer = int(RowInput)
-    
-    ColumnInput = input("please put your column answer here as well from 1 to grid size: ")
-    if ColumnInput.isdigit() == False:
-        print("BRO U NEED A NUMBER")
-        continue
-    ColumnAnswer = int(ColumnInput)
+    RowAnswer = GetNumberFromUser("please put your row answer here from 1 to grid size: ", "You need a number -_-")
+
+    ColumnAnswer = GetNumberFromUser("please put your column answer here as well from 1 to grid size: ", "YOU NEED AN INPUT HOW MANY TIMES")
 
     totalgoeshad += 1
+    
     if totalgoeshad == totalgoes:
         print("hold on you've used up all your goes")
         break
@@ -78,5 +79,5 @@ while True:
         break
 
     else:
-        print("hahahahahahaha ur so bad you missed hahahahahahaha, but try again")
+        print("hahahahahahaha ur so bad you missed hahahahahahaha, jk try again")
 
