@@ -62,11 +62,8 @@ while True:
     
     totalgoeshad = 0
     
-    battleshiprow = randint(0, GridSize - 1)
-    battleshipcolumn = randint(0, GridSize - 1)
-    
-    # battleshipcolumn = 5
-    # battleshiprow = 5
+    battleshiprow = random.randint(0, GridSize - 1)
+    battleshipcolumn = random.randint(0, GridSize - 1)
     
     # makes an empty list that makes an ocean of coordinates
     ocean = []
@@ -124,6 +121,7 @@ while True:
             break
         print("it's a simple instruction come on")
     if answer == 'y':
+        os.system("cls")
         continue
     else:
         print("okey bye")
