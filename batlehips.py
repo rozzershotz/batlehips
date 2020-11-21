@@ -1,5 +1,6 @@
-from random import randint
+import random
 import time
+import os
 
 def GetNumberFromUser(message, errormessage):
     ValidInputGiven = False
@@ -12,18 +13,30 @@ def GetNumberFromUser(message, errormessage):
     integer = int(stringInput)
     return integer
 
+time.sleep(0.5)
+os.system('cls')
+time.sleep(0.5)
+
+# kinda prints a loading screen for some reason
+TimeCounter = 0
+for Waiting in range(20):
+    print("Loading")
+    print("")
+    print("∎" * TimeCounter)
+    time.sleep(random.random())
+    os.system('cls')
+    TimeCounter += 1
+
+time.sleep(0.5)
+os.system('cls')
+time.sleep(0.5)
+
+
 print("  __ )          |    |    |         ___|   |     _)        ")
 print("  __ \    _` |  __|  __|  |   _ \ \___ \   __ \   |  __ \  ")
 print("  |   |  (   |  |    |    |   __/       |  | | |  |  |   | ")
 print(" ____/  \__,_| \__| \__| _| \___| _____/  _| |_| _|  .__/  ")
 print("                                                    _|     ")
-
-TimeCounter = 0
-for Waiting in range(5):
-    time.sleep(0.5)
-    print("Loading" + ("." * TimeCounter))
-    TimeCounter += 1
-    
 
 # making it so the game can last more than one game
 
