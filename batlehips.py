@@ -81,7 +81,7 @@ for Waiting in range(20):
     print("Loading")
     print("")
     print("∎" * TimeCounter)
-    #time.sleep(random.random())
+    time.sleep(random.random())
     os.system('cls')
     TimeCounter += 1
 
