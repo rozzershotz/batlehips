@@ -13,6 +13,64 @@ def GetNumberFromUser(message, errormessage):
     integer = int(stringInput)
     return integer
 
+def MainMenu():
+    #draw the main menu for the game and return the user choice
+    acceptableMenuChoices = ["E", "H", "I", "C", "O", "Q"]
+    theChoice = ""
+    while(theChoice not in acceptableMenuChoices):
+    
+        print('''
+
+    *********************************
+    **       Batlehips menyu       **
+    **                             **
+    *********************************
+    **                             **
+    **    E - Easy mode            **
+    **    H - Hard mode            **
+    **    I - Impossible mode      **
+    **    C - Custom mode          **
+    **    O - Options              **
+    **                             **
+    **    Q - Quit                 **
+    **                             **
+    **   (c) 42 AD rozzer thing    **
+    *********************************
+        ''')
+    
+        theChoice = input("Choose ur thing idk: ").upper()
+    
+    return theChoice
+
+def OptionsMenu():
+    acceptableMenuChoices = ["T", "S", "I", "B"]
+    theChoice = ""
+    while(theChoice not in acceptableMenuChoices):
+    
+        print('''
+
+    *********************************
+    **       Opchions menyu        **
+    **                             **
+    *********************************
+    **                             **
+    **    T - RTX ON/OFF           **
+    **    S - Sound ON/OFF         **
+    **    I - Custom imports       **
+    **                             **
+    **    B - Back                 **
+    **                             **
+    **                             **
+    **                             **
+    **   (c) 42 AD rozzer thing    **
+    *********************************
+        ''')
+    
+        theChoice = input("Choose ur option thing idk: ").upper()
+    
+    return theChoice
+
+
 time.sleep(0.5)
 os.system('cls')
 time.sleep(0.5)
@@ -23,7 +81,7 @@ for Waiting in range(20):
     print("Loading")
     print("")
     print("∎" * TimeCounter)
-    time.sleep(random.random())
+    #time.sleep(random.random())
     os.system('cls')
     TimeCounter += 1
 
@@ -32,32 +90,65 @@ os.system('cls')
 time.sleep(0.5)
 
 
-print("  __ )          |    |    |         ___|   |     _)        ")
-print("  __ \    _` |  __|  __|  |   _ \ \___ \   __ \   |  __ \  ")
-print("  |   |  (   |  |    |    |   __/       |  | | |  |  |   | ")
-print(" ____/  \__,_| \__| \__| _| \___| _____/  _| |_| _|  .__/  ")
-print("                                                    _|     ")
 
 # making it so the game can last more than one game
 
 while True:
 
+    os.system("cls")
+    print("  __ )          |    |    |         ___|   |     _)        ")
+    print("  __ \    _` |  __|  __|  |   _ \ \___ \   __ \   |  __ \  ")
+    print("  |   |  (   |  |    |    |   __/       |  | | |  |  |   | ")
+    print(" ____/  \__,_| \__| \__| _| \___| _____/  _| |_| _|  .__/  ")
+    print("                                                    _|     ")
+
     print("")
-    print("--------------------------------------------")
+    print("-----------------------------------------------------------")
     print("")
     time.sleep(0.5)
 
-    # takes the size of the grid that the user wants
-    GridSize = GetNumberFromUser("How big do you want the board?: ", "You need a number -_-")
+    userChoice = MainMenu()
 
-    if GridSize > 20:
-        print("too big bucko")
-        GridSize = 20
-        
-    elif GridSize < 5:
-        print("too smoll mis amigo")
+    if(userChoice == "E"):
+        print("sure thing bucko, loading...")
         GridSize = 5
-    
+        time.sleep(0.5)
+
+    elif(userChoice == "H"):
+        print("epic gamer, loading...")
+        GridSize = 10
+        time.sleep(0.5)
+
+    elif(userChoice == "I"):
+        print("It's your funeral, loading...")
+        GridSize = 20
+        time.sleep(0.5)
+
+    elif(userChoice == "C"):
+        GridSize = GetNumberFromUser("How big do you want the board?: ", "You need a number -_-")
+        if GridSize > 20:
+            print("too big bucko")
+            GridSize = 20
+        elif GridSize < 5:
+            print("too smoll mis amigo")
+            GridSize = 5
+        time.sleep(0.5)
+
+    elif(userChoice == "O"):
+        OptionsThing = OptionsMenu()
+        if(OptionsThing == "B"):
+            continue
+        else:
+            print("options have been update yay")
+            time.sleep(1)
+            continue
+
+    elif(userChoice == "Q"):
+        print("okey cya")
+        break
+
+    # takes the size of the grid that the user wants
+
     totalgoes = GridSize * round(GridSize/4)
     
     totalgoeshad = 0
